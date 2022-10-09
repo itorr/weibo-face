@@ -4,17 +4,7 @@
 ```bash
 npm i weibo-face
 ```
-或者
-```html
-<script type="importmap">
-    {
-        "imports": {
-            "weibo-face": "https://cdn.jsdelivr.net/npm/weibo-face"
-        }
-    }
-</script>
-```
-引用 NPM CDN 例
+或者 引用 CDN
 [npm-cdn.html](https://lab.magiconch.com/weibo-face/npm-cdn.html)
 
 ## 使用
