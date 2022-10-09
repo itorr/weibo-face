@@ -14,6 +14,7 @@ npm i weibo-face
     }
 </script>
 ```
+[直接引用 NPM CDN 例](html/test.html)
 
 ## 使用
 ```javascript
