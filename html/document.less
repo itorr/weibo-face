@@ -15,10 +15,18 @@ h1,h2,h3,h4{
     --face-width: 36px;
     // --face-width: 22px;
 }
+.app{
+    max-width: 820px;
+    margin: 0 auto;
+}
 .faces-box{
-    padding: 10px;
+    // padding: 10px;
     .face-list-box{
         h4{
+            font-size: 1em;
+            // font-weight: normal;
+            padding:.2em 10px 0;
+            
         }
         .face-list{
             display: flex;
@@ -27,12 +35,13 @@ h1,h2,h3,h4{
             align-content: flex-start;
             justify-content: flex-start;
             align-items: flex-start;
+            margin: 10px 0 0 10px;
             .face-item{
                 padding:4px;
-                margin: 0 4px 4px 0;
-                border-radius: 4px;
+                margin: 0 10px 10px 0;
+                border-radius: 2px;
                 background: #FFF;
-                border: 1px solid #e8e8e8;
+                box-shadow: 0 0 0 1px #ffe2c1;
                 cursor: pointer;
                 img{
                     display: block;
@@ -42,8 +51,18 @@ h1,h2,h3,h4{
 
                 position: relative;
                 &[data-hot]{
-                    border-color: #eeeac9;
                     background: #fffce4;
+                }
+
+                transition: 
+                    transform .3s ease,
+                    box-shadow .3s ease;
+                &:hover{
+                    transform: translateY(-1px);
+                    box-shadow: 
+                        0 0 0 1px #ff976b,
+                        0 1px 0 1px #ff976b,
+                        0 3px 3px rgba(255, 157, 0, 0.307);
                 }
             }
         }

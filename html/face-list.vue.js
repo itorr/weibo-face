@@ -1,6 +1,6 @@
 const template = `<div class="faces-box">
     <div class="face-list-box" v-for="faces,type in data">
-        <h2>{{type}}</h2>
+        <h4 v-if="faces.constructor === Array">{{titles[type] || type}}</h4>
         <div class="face-list" v-if="faces.constructor === Array">
             <div v-for="face in faces" :key="face.value"
                 class="face-item" 
@@ -12,12 +12,13 @@ const template = `<div class="faces-box">
                 <img :src="face.url" :alt="face.value">
             </div>
         </div>
-        <face-list v-else :data="faces"></face-list>
+        <face-list v-else :data="faces" :titles="titles"></face-list>
         </div>
 </div>`
 Vue.component('face-list',{
     template,
     props:{
-        data: Object
+        data: Object,
+        titles: Object
     }
 });

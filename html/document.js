@@ -1,6 +1,14 @@
+const titles = {
+    usual: '默认',
+    norm: '默认',
+    hot: '热门',
+    more: '其他',
+    brand: '牌子',
+};
 
 const data = {
     Faces: null,
+    titles,
 };
 
 const app = new Vue({
@@ -33,6 +41,16 @@ const app = new Vue({
             };
             ParseFaces(Faces);
             return FaceByValues;
+        },
+        FaceURLByValues(){
+            return Object.fromEntries(Object.entries(this.FaceByValues).map(([k,v])=>[k,v.icon]))
+        },
+        faceURLByValues(){
+            return Object.entries(this.FaceURLByValues).map(([k,v])=>[
+                k,
+                k.split('').map(v=>v.charCodeAt(0)).join(','),
+                v
+            ])
         }
     },
     methods: {

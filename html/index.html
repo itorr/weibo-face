@@ -12,9 +12,14 @@
     <header>
         <h1>微博表情格式化</h1>
     </header>
-    <face-list :data="Faces"></face-list>
+    <article>
+        <h2>表情列表</h2>
+        <face-list :data="Faces" :titles="titles"></face-list>
+    </article>
     <!-- <pre>{{JSON.stringify(Faces,0,2)}}</pre> -->
-    <pre>{{JSON.stringify(FaceByValues,0,2)}}</pre>
+    <!-- <pre>{{JSON.stringify(FaceByValues,0,2)}}</pre> -->
+    <!-- <pre>{{JSON.stringify(FaceURLByValues,0,2)}}</pre> -->
+    <!-- <pre>{{JSON.stringify(faceURLByValues,0,2)}}</pre> -->
     
 </div>
 <script src="/vue.2.6.11.min.js"></script>
