@@ -4,6 +4,15 @@
 ```bash
 npm i weibo-face
 ```
+```html
+<script type="importmap">
+    {
+        "imports": {
+            "weibo-face": "https://cdn.jsdelivr.net/npm/weibo-face"
+        }
+    }
+</script>
+```
 
 ## 使用
 ```javascript
