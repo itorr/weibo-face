@@ -7,86 +7,86 @@
 <meta name="discription" content="微博表情格式化 weibo face parse">
 <link rel="stylesheet" href="document.css" />
 <body>
-    <div class="app">
-        <header>
-            <h1>微博表情格式化</h1>
-        </header>
-        <article>
-            <!-- <h2>有什么新鲜事想告诉大家?</h2> -->
-            <div class="text-box">
-                <textarea v-model="text" placeholder="输入微博正文" ref="text">怎么会这样[失望][悲伤][泪][允悲][苦涩]
+<div class="app">
+    <header>
+        <h1>微博表情格式化</h1>
+    </header>
+    <article>
+        <!-- <h2>有什么新鲜事想告诉大家?</h2> -->
+        <div class="text-box">
+            <textarea v-model="text" placeholder="输入微博正文" ref="text">怎么会这样[失望][悲伤][泪][允悲][苦涩]
 生气[白眼]</textarea>
+        </div>
+    </article>
+    <article>
+        <h2>预览</h2>
+        <div class="preview-box"></div>
+    </article>
+    <article>
+        <h2>安装</h2>
+        <div class="highlight">
+            <pre>npm i weibo-face</pre>
+        </div>
+    </article>
+    <article>
+        <h2>使用</h2>
+        <div class="highlight">
+            <pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">weiboFaceParse</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">'weibo-face'</span><br><br><span class="pl-en">weiboFaceParse</span><span class="pl-kos">(</span><span class="pl-s">'好耶[太开心][鼓掌][嘻嘻]'</span><span class="pl-kos">)</span><br><span class="pl-c">// '好耶&lt;img alt="太开心" src="https://face.t.sinajs.cn/t4/appstyle/expression/ext/normal/1e/2018new_taikaixin_org.png"&gt;&lt;img alt="鼓掌" src="https://face.t.sinajs.cn/t4/appstyle/expression/ext/normal/6e/2018new_guzhang_thumb.png"&gt;&lt;img alt="嘻嘻" src="https://face.t.sinajs.cn/t4/appstyle/expression/ext/normal/33/2018new_xixi_thumb.png"&gt;'</span></pre>
+        </div>
+    </article>
+    <article>
+        <h2>表情列表</h2>
+        <div class="faces-box">
+            <div class="face-list-box">
+                <div class="face-list"></div>
             </div>
-        </article>
-        <article>
-            <h2>预览</h2>
-            <div class="preview-box"></div>
-        </article>
-        <article>
-            <h2>安装</h2>
-            <div class="highlight">
-                <pre>npm i weibo-face</pre>
-            </div>
-        </article>
-        <article>
-            <h2>使用</h2>
-            <div class="highlight">
-                <pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">weiboFaceParse</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">'weibo-face'</span><br><br><span class="pl-en">weiboFaceParse</span><span class="pl-kos">(</span><span class="pl-s">'好耶[太开心][鼓掌][嘻嘻]'</span><span class="pl-kos">)</span><br><span class="pl-c">// '好耶&lt;img alt="太开心" src="https://face.t.sinajs.cn/t4/appstyle/expression/ext/normal/1e/2018new_taikaixin_org.png"&gt;&lt;img alt="鼓掌" src="https://face.t.sinajs.cn/t4/appstyle/expression/ext/normal/6e/2018new_guzhang_thumb.png"&gt;&lt;img alt="嘻嘻" src="https://face.t.sinajs.cn/t4/appstyle/expression/ext/normal/33/2018new_xixi_thumb.png"&gt;'</span></pre>
-            </div>
-        </article>
-        <article>
-            <h2>表情列表</h2>
-            <div class="faces-box">
-                <div class="face-list-box">
-                    <div class="face-list"></div>
-                </div>
-            </div>
-        </article>
-    </div>
-    <script type="importmap">
-        {
-            "imports": {
-                "weibo-face": "https://cdn.jsdelivr.net/npm/weibo-face@1.0.4"
-            }
+        </div>
+    </article>
+</div>
+<script type="importmap">
+    {
+        "imports": {
+            "weibo-face": "https://cdn.jsdelivr.net/npm/weibo-face@1.0.4"
         }
-    </script>
-    <script type="module">
-        import { weiboFaceParse,WeiboFaceByValues } from 'weibo-face';
+    }
+</script>
+<script type="module">
+    import { weiboFaceParse,WeiboFaceByValues } from 'weibo-face';
 
-        const textareaEl = document.querySelector('textarea');
-        const previewEl = document.querySelector('.preview-box');
-        textareaEl.oninput = _=>{
-            previewEl.innerHTML = weiboFaceParse(textareaEl.value.trim()).replace(/\n/g,'<br>');
-        };
+    const textareaEl = document.querySelector('textarea');
+    const previewEl = document.querySelector('.preview-box');
+    textareaEl.oninput = _=>{
+        previewEl.innerHTML = weiboFaceParse(textareaEl.value.trim()).replace(/\n/g,'<br>');
+    };
+    textareaEl.oninput();
+
+    const faceListEl = document.querySelector('.face-list');
+    faceListEl.innerHTML = Object.entries(WeiboFaceByValues).map(([value,url])=>`<div title="[${value}]" class="face-item"><img src="${url}" alt="[${value}]"></div>`).join('');
+    faceListEl.onclick = e=>{
+        const { target } = e;
+        const value = target.getAttribute('title');
+        if(!value) return;
+
+        const { selectionStart, selectionEnd } = textareaEl;
+        // console.log(face,textareaEl,{ selectionStart, selectionEnd });
+        const text = textareaEl.value;
+        const { length } = text;
+        textareaEl.value = [
+            text.substr(0,selectionStart),
+            value,
+            text.substr(selectionEnd,length)
+        ].join('');
         textareaEl.oninput();
 
-        const faceListEl = document.querySelector('.face-list');
-        faceListEl.innerHTML = Object.entries(WeiboFaceByValues).map(([value,url])=>`<div title="[${value}]" class="face-item"><img src="${url}" alt="[${value}]"></div>`).join('');
-        faceListEl.onclick = e=>{
-            const { target } = e;
-            const value = target.getAttribute('title');
-            if(!value) return;
-
-            const { selectionStart, selectionEnd } = textareaEl;
-            // console.log(face,textareaEl,{ selectionStart, selectionEnd });
-            const text = textareaEl.value;
-            const { length } = text;
-            textareaEl.value = [
-                text.substr(0,selectionStart),
-                value,
-                text.substr(selectionEnd,length)
-            ].join('');
-            textareaEl.oninput();
-
-            const index = selectionStart + value.length;
-            textareaEl.focus();
-            textareaEl.selectionStart = index;
-            textareaEl.selectionEnd = index;
-        }
-    </script>
-    <footer>
-        <a href="https://github.com/itorr/weibo-face" target="_blank">GitHub</a>
-        <a href="https://lab.magiconch.com/" target="_blank">神奇海螺实验室</a>
-    </footer>
+        const index = selectionStart + value.length;
+        textareaEl.focus();
+        textareaEl.selectionStart = index;
+        textareaEl.selectionEnd = index;
+    }
+</script>
+<footer>
+    <a href="https://github.com/itorr/weibo-face" target="_blank">GitHub</a>
+    <a href="https://lab.magiconch.com/" target="_blank">神奇海螺实验室</a>
+</footer>
 </body>
 </html>
