@@ -4,6 +4,7 @@
 ```bash
 npm i weibo-face
 ```
+或者
 ```html
 <script type="importmap">
     {
