@@ -22,16 +22,24 @@
             <h2>预览</h2>
             <div class="preview-box"></div>
         </article>
+        <article>
+            <h2>表情列表</h2>
+            <div class="faces-box">
+                <div class="face-list-box">
+                    <div class="face-list"></div>
+                </div>
+            </div>
+        </article>
     </div>
     <script type="importmap">
         {
             "imports": {
-                "weibo-face": "https://cdn.jsdelivr.net/npm/weibo-face"
+                "weibo-face": "https://cdn.jsdelivr.net/npm/weibo-face@1.0.4"
             }
         }
     </script>
     <script type="module">
-        import { weiboFaceParse } from 'weibo-face';
+        import { weiboFaceParse,WeiboFaceByValues } from 'weibo-face';
 
         const textareaEl = document.querySelector('textarea');
         const previewEl = document.querySelector('.preview-box');
@@ -39,6 +47,30 @@
             previewEl.innerHTML = weiboFaceParse(textareaEl.value.trim()).replace(/\n/g,'<br>');
         };
         textareaEl.oninput();
+
+        const faceListEl = document.querySelector('.face-list');
+        faceListEl.innerHTML = Object.entries(WeiboFaceByValues).map(([value,url])=>`<div title="[${value}]" class="face-item"><img src="${url}" alt="[${value}]"></div>`).join('');
+        faceListEl.onclick = e=>{
+            const { target } = e;
+            const value = target.getAttribute('title');
+            if(!value) return;
+
+            const { selectionStart, selectionEnd } = textareaEl;
+            // console.log(face,textareaEl,{ selectionStart, selectionEnd });
+            const text = textareaEl.value;
+            const { length } = text;
+            textareaEl.value = [
+                text.substr(0,selectionStart),
+                value,
+                text.substr(selectionEnd,length)
+            ].join('');
+            textareaEl.oninput();
+
+            const index = selectionStart + value.length;
+            textareaEl.focus();
+            textareaEl.selectionStart = index;
+            textareaEl.selectionEnd = index;
+        }
     </script>
 </body>
 </html>
