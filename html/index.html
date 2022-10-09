@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>微博表情格式化 - 神奇海螺实验室</title>
+<meta name="viewport" content="width=device-width,user-scalable=0">
+<meta name="discription" content="微博表情格式化 weibo face parse">
+<link rel="stylesheet" href="document.css" />
+</head>
+<body>
+<div class="app" v-cloak>
+    <header>
+        <h1>微博表情格式化</h1>
+    </header>
+    <face-list :data="Faces"></face-list>
+    <!-- <pre>{{JSON.stringify(Faces,0,2)}}</pre> -->
+    <pre>{{JSON.stringify(FaceByValues,0,2)}}</pre>
+    
+</div>
+<script src="/vue.2.6.11.min.js"></script>
+<script src="face-list.vue.js"></script>
+<script src="document.js"></script>
+</body>
+</html>
