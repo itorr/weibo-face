@@ -9,6 +9,8 @@ npm i weibo-face
 [code](https://github.com/itorr/weibo-face/blob/main/html/npm-cdn.html#L46)
 
 ## 使用
+
+### 转换正文中表情成网页代码
 ```javascript
 import { weiboFaceParse } from 'weibo-face'
 
