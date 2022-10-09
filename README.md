@@ -27,3 +27,12 @@ import { WeiboFaceByValues } from 'weibo-face'
 Object.entries(WeiboFaceByValues)
 // [ [value, url],... ]
 ```
+## 建议的样式
+```CSS
+.weibo-face{
+    width: 18px;
+    height: 18px;
+    vertical-align: -4px;
+    margin: 0 1px;
+}
+```
