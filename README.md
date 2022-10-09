@@ -4,9 +4,10 @@
 ```bash
 npm i weibo-face
 ```
-或者 引用 CDN
-[npm-cdn.html](https://lab.magiconch.com/weibo-face/npm-cdn.html)
-[code](https://github.com/itorr/weibo-face/blob/main/html/npm-cdn.html#L46)
+或者
+### 引用 CDN
+例 [html/npm-cdn.html](https://lab.magiconch.com/weibo-face/npm-cdn.html)
+[源代码](https://github.com/itorr/weibo-face/blob/main/html/npm-cdn.html#L46)
 
 ## 使用
 
