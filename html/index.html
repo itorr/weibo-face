@@ -13,14 +13,39 @@
         <h1>微博表情格式化</h1>
     </header>
     <article>
-        <h2>表情列表</h2>
-        <face-list :data="Faces" :titles="titles"></face-list>
+        <!-- <h2>有什么新鲜事想告诉大家?</h2> -->
+        <div class="text-box">
+            <textarea v-model="text" placeholder="输入微博正文" ref="text"></textarea>
+        </div>
     </article>
+    <article>
+        <h2>预览</h2>
+        <div class="preview-box" v-html="html"></div>
+    </article>
+    <article>
+        <h2>安装</h2>
+        <div class="highlight">
+            <pre>npm i weibo-face</pre>
+        </div>
+    </article>
+    <article>
+        <h2>使用</h2>
+        <div class="highlight">
+            <pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">weiboFaceParse</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">'weibo-face'</span><br><br><span class="pl-en">weiboFaceParse</span><span class="pl-kos">(</span><span class="pl-s">'好耶[太开心][鼓掌][嘻嘻]'</span><span class="pl-kos">)</span><br><span class="pl-c">// '好耶&lt;img alt="太开心" src="https://face.t.sinajs.cn/t4/appstyle/expression/ext/normal/1e/2018new_taikaixin_org.png"&gt;&lt;img alt="鼓掌" src="https://face.t.sinajs.cn/t4/appstyle/expression/ext/normal/6e/2018new_guzhang_thumb.png"&gt;&lt;img alt="嘻嘻" src="https://face.t.sinajs.cn/t4/appstyle/expression/ext/normal/33/2018new_xixi_thumb.png"&gt;'</span></pre>
+        </div>
+    </article>
+    <article>
+        <h2>表情列表</h2>
+        <face-list :data="Faces" :titles="titles" @face="face($event)"></face-list>
+    </article>
+    <footer>
+        <a href="https://github.com/itorr/weibo-face" target="_blank">GitHub</a>
+        <a href="https://lab.magiconch.com/" target="_blank">神奇海螺实验室</a>
+    </footer>
     <!-- <pre>{{JSON.stringify(Faces,0,2)}}</pre> -->
     <!-- <pre>{{JSON.stringify(FaceByValues,0,2)}}</pre> -->
     <!-- <pre>{{JSON.stringify(FaceURLByValues,0,2)}}</pre> -->
     <!-- <pre>{{JSON.stringify(faceURLByValues,0,2)}}</pre> -->
-    
 </div>
 <script src="/vue.2.6.11.min.js"></script>
 <script src="face-list.vue.js"></script>

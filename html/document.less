@@ -19,6 +19,47 @@ h1,h2,h3,h4{
     max-width: 820px;
     margin: 0 auto;
 }
+header{
+    padding: 20px;
+}
+.text-box{
+    padding: 0 20px;
+}
+h2{
+    padding: 30px 10px 10px;
+}
+textarea{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border:0;
+    box-shadow: 0 0 0 1px #fa7d3c;
+    border-radius: 2px;
+    font: inherit;
+    padding: 10px;
+    resize: none;
+    height: 8em;
+    outline: none;
+    transition: box-shadow .3s ease;
+    &:focus{
+        box-shadow: 0 0 0 2px #fa7d3c;
+    }
+}
+.preview-box{
+    background: #fff;
+    padding:15px 20px;
+    border-radius: 2px;
+    margin: 0 20px;
+    line-height: 23px;
+    box-shadow: 0 0 0 1px #ffe2c1;
+
+    .weibo-face{
+        width: 18px;
+        height: 18px;
+        vertical-align: -4px;
+        margin: 0 1px;
+    }
+}
 .faces-box{
     // padding: 10px;
     .face-list-box{
@@ -66,5 +107,46 @@ h1,h2,h3,h4{
                 }
             }
         }
+    }
+}
+
+
+
+
+
+.highlight{
+    margin: 0 20px;
+    overflow: auto;
+    background: #161b22;
+    border-radius: 3px;
+    pre{
+        margin:0;
+        padding: 18px 20px;
+        color: #c9d1d9;
+        line-height: 1.45;
+        font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+    }
+}
+
+.pl-s{
+    color: #a5d6ff;
+}
+.pl-k{
+    color: #ff7b72;
+}
+.pl-en{
+    color: #d2a8ff;
+}
+.pl-c{
+    color: #8b949e;
+}
+
+footer{
+    text-align: center;
+    padding: 50px 0 100px;
+    a{
+        color: #fa7d3c;
+        text-decoration: none;
+        margin: 0 10px;
     }
 }

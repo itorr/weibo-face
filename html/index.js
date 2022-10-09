@@ -1,7 +1,7 @@
 export const weiboFaceParse = (Faces=>{
     return text => text.replace(
         /\[([\u4e00-\u9fa5a-z0-9_]+?)\]/ig,
-        (all,value)=> Faces[value] ? `<img alt="[${value}]" src="${Faces[value]}">` : all
+        (all,value)=> Faces[value] ? `<img class="weibo-face" data-value="${value}" alt="[${value}]" src="${Faces[value]}">` : all
     );
 })({
     "666": "https://face.t.sinajs.cn/t4/appstyle/expression/ext/normal/6c/2022_666_thumb.png",

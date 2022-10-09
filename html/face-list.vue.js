@@ -8,11 +8,12 @@ const template = `<div class="faces-box">
                 :data-hot="face.hot"
                 :data-common="face.common"
                 :data-category="face.category"
+                @click.prevent.stop="$emit('face',face)"
                 >
                 <img :src="face.url" :alt="face.value">
             </div>
         </div>
-        <face-list v-else :data="faces" :titles="titles"></face-list>
+        <face-list v-else :data="faces" :titles="titles" @face="$emit('face',$event)"></face-list>
         </div>
 </div>`
 Vue.component('face-list',{
