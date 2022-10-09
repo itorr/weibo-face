@@ -102,3 +102,4 @@ dist
 
 # TernJS port file
 .tern-port
+vue.2.6.11.min.js
