@@ -23,6 +23,18 @@
             <div class="preview-box"></div>
         </article>
         <article>
+            <h2>安装</h2>
+            <div class="highlight">
+                <pre>npm i weibo-face</pre>
+            </div>
+        </article>
+        <article>
+            <h2>使用</h2>
+            <div class="highlight">
+                <pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">weiboFaceParse</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">'weibo-face'</span><br><br><span class="pl-en">weiboFaceParse</span><span class="pl-kos">(</span><span class="pl-s">'好耶[太开心][鼓掌][嘻嘻]'</span><span class="pl-kos">)</span><br><span class="pl-c">// '好耶&lt;img alt="太开心" src="https://face.t.sinajs.cn/t4/appstyle/expression/ext/normal/1e/2018new_taikaixin_org.png"&gt;&lt;img alt="鼓掌" src="https://face.t.sinajs.cn/t4/appstyle/expression/ext/normal/6e/2018new_guzhang_thumb.png"&gt;&lt;img alt="嘻嘻" src="https://face.t.sinajs.cn/t4/appstyle/expression/ext/normal/33/2018new_xixi_thumb.png"&gt;'</span></pre>
+            </div>
+        </article>
+        <article>
             <h2>表情列表</h2>
             <div class="faces-box">
                 <div class="face-list-box">
@@ -72,5 +84,9 @@
             textareaEl.selectionEnd = index;
         }
     </script>
+    <footer>
+        <a href="https://github.com/itorr/weibo-face" target="_blank">GitHub</a>
+        <a href="https://lab.magiconch.com/" target="_blank">神奇海螺实验室</a>
+    </footer>
 </body>
 </html>

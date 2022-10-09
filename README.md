@@ -1,9 +1,5 @@
 # 解析微博表情
 
-## 演示
-
- https://lab.magiconch.com/weibo-face/
-
 ## 安装
 ```bash
 npm i weibo-face
