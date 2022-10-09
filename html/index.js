@@ -1,9 +1,4 @@
-export const weiboFaceParse = (Faces=>{
-    return text => text.replace(
-        /\[([\u4e00-\u9fa5a-z0-9_]+?)\]/ig,
-        (all,value)=> Faces[value] ? `<img class="weibo-face" data-value="${value}" alt="[${value}]" src="${Faces[value]}">` : all
-    );
-})({
+export const WeiboFaceByValues = {
     "666": "https://face.t.sinajs.cn/t4/appstyle/expression/ext/normal/6c/2022_666_thumb.png",
     "2022": "https://face.t.sinajs.cn/t4/appstyle/expression/ext/normal/bc/2021_2022_thumb.png",
     "微笑": "https://face.t.sinajs.cn/t4/appstyle/expression/ext/normal/e3/2018new_weixioa02_org.png",
@@ -306,4 +301,11 @@ export const weiboFaceParse = (Faces=>{
     "哪吒委屈": "https://face.t.sinajs.cn/t4/appstyle/expression/ext/normal/d4/nezha_weiqu02_thumb.png",
     "哪吒得意": "https://face.t.sinajs.cn/t4/appstyle/expression/ext/normal/1d/nezha_deyi02_thumb.png",
     "哪吒开心": "https://face.t.sinajs.cn/t4/appstyle/expression/ext/normal/35/nezha_kaixin02_thumb.png"
-  })
+};
+export const weiboFaceRegex = /\[([\u4e00-\u9fa5a-z0-9_]+?)\]/ig;
+export const weiboFaceParse = text => text.replace(weiboFaceRegex,(all,value)=> {
+    const url = WeiboFaceByValues[value];
+    if(!url) return all;
+
+    return `<img class="weibo-face" data-value="${value}" alt="[${value}]" src="${WeiboFaceByValues[value]}">`;
+});
