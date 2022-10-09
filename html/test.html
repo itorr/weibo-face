@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试</title>
+    <link rel="stylesheet" href="document.css" />
+</head>
+<body>
+    <div class="app">
+        <header>
+            <h1>微博表情格式化</h1>
+        </header>
+        <article>
+            <!-- <h2>有什么新鲜事想告诉大家?</h2> -->
+            <div class="text-box">
+                <textarea v-model="text" placeholder="输入微博正文" ref="text">怎么会这样[失望][悲伤][泪][允悲][苦涩]
+生气[白眼]</textarea>
+            </div>
+        </article>
+        <article>
+            <h2>预览</h2>
+            <div class="preview-box"></div>
+        </article>
+    </div>
+    <script type="importmap">
+        {
+            "imports": {
+                "weibo-face": "https://cdn.jsdelivr.net/npm/weibo-face"
+            }
+        }
+    </script>
+    <script type="module">
+        import { weiboFaceParse } from 'weibo-face';
+
+        const textareaEl = document.querySelector('textarea');
+        const previewEl = document.querySelector('.preview-box');
+        textareaEl.oninput = _=>{
+            previewEl.innerHTML = weiboFaceParse(textareaEl.value.trim()).replace(/\n/g,'<br>');
+        };
+        textareaEl.oninput();
+    </script>
+</body>
+</html>
