@@ -1,5 +1,9 @@
 # 解析微博表情
 
+## 演示
+
+ https://lab.magiconch.com/weibo-face/
+
 ## 安装
 ```bash
 npm i weibo-face
@@ -14,7 +18,8 @@ npm i weibo-face
     }
 </script>
 ```
-[直接引用 NPM CDN 例](html/test.html)
+引用 NPM CDN 例
+[npm-cdn.html](https://lab.magiconch.com/weibo-face/npm-cdn.html)
 
 ## 使用
 ```javascript
