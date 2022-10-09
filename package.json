@@ -1,6 +1,6 @@
 {
   "name": "weibo-face",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "微博表情格式化",
   "main": "html/index.js",
   "scripts": {
