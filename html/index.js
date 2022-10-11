@@ -307,5 +307,5 @@ export const weiboFaceParse = text => text.replace(weiboFaceRegex,(all,value)=> 
     const url = WeiboFaceByValues[value];
     if(!url) return all;
 
-    return `<img class="weibo-face" data-value="${value}" alt="[${value}]" src="${WeiboFaceByValues[value]}">`;
+    return `<img class="weibo-face" data-value="${value}" alt="[${value}]" src="${url}">`;
 });
